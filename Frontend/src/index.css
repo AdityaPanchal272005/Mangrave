@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Mangrove Conservation Theme - Dark Green + Oceanic */
+    --background: 150 20% 8%;
+    --foreground: 150 15% 95%;
+
+    --card: 150 15% 12%;
+    --card-foreground: 150 15% 95%;
+
+    --popover: 150 15% 12%;
+    --popover-foreground: 150 15% 95%;
+
+    /* Deep Mangrove Green */
+    --primary: 158 45% 25%;
+    --primary-foreground: 150 15% 95%;
+
+    /* Ocean Teal */
+    --secondary: 180 35% 15%;
+    --secondary-foreground: 180 25% 85%;
+
+    --muted: 150 20% 15%;
+    --muted-foreground: 150 10% 65%;
+
+    /* Coral Accent */
+    --accent: 15 80% 55%;
+    --accent-foreground: 150 15% 95%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 150 15% 95%;
+
+    --border: 150 15% 20%;
+    --input: 150 15% 18%;
+    --ring: 158 45% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom Mangrove Theme Colors */
+    --mangrove-dark: 158 50% 15%;
+    --mangrove-medium: 158 45% 25%;
+    --mangrove-light: 158 40% 35%;
+    
+    --ocean-deep: 195 45% 20%;
+    --ocean-medium: 195 40% 30%;
+    --ocean-light: 195 35% 40%;
+    
+    --reef-coral: 15 80% 55%;
+    --reef-orange: 25 85% 60%;
+    
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --warning: 45 93% 47%;
+    --info: 199 89% 48%;
+    
+    /* Gradients */
+    --gradient-mangrove: linear-gradient(135deg, hsl(var(--mangrove-dark)), hsl(var(--mangrove-medium)));
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--ocean-deep)), hsl(var(--ocean-medium)));
+    --gradient-reef: linear-gradient(135deg, hsl(var(--reef-coral)), hsl(var(--reef-orange)));
+    
+    /* Shadows */
+    --shadow-mangrove: 0 10px 30px -5px hsl(var(--mangrove-dark) / 0.4);
+    --shadow-ocean: 0 8px 25px -5px hsl(var(--ocean-deep) / 0.3);
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Sidebar Variables - Updated for Mangrove Theme */
+    --sidebar-background: 150 15% 12%;
+    --sidebar-foreground: 150 15% 95%;
+    --sidebar-primary: 158 45% 25%;
+    --sidebar-primary-foreground: 150 15% 95%;
+    --sidebar-accent: 150 20% 15%;
+    --sidebar-accent-foreground: 150 15% 95%;
+    --sidebar-border: 150 15% 20%;
+    --sidebar-ring: 158 45% 35%;
+  }
+
+  .dark {
+    /* Dark mode colors already match our mangrove theme */
+    --background: 150 20% 8%;
+    --foreground: 150 15% 95%;
+
+    --card: 150 15% 12%;
+    --card-foreground: 150 15% 95%;
+
+    --popover: 150 15% 12%;
+    --popover-foreground: 150 15% 95%;
+
+    --primary: 158 45% 25%;
+    --primary-foreground: 150 15% 95%;
+
+    --secondary: 180 35% 15%;
+    --secondary-foreground: 180 25% 85%;
+
+    --muted: 150 20% 15%;
+    --muted-foreground: 150 10% 65%;
+
+    --accent: 15 80% 55%;
+    --accent-foreground: 150 15% 95%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 150 15% 95%;
+
+    --border: 150 15% 20%;
+    --input: 150 15% 18%;
+    --ring: 158 45% 35%;
+    
+    --sidebar-background: 150 15% 12%;
+    --sidebar-foreground: 150 15% 95%;
+    --sidebar-primary: 158 45% 25%;
+    --sidebar-primary-foreground: 150 15% 95%;
+    --sidebar-accent: 150 20% 15%;
+    --sidebar-accent-foreground: 150 15% 95%;
+    --sidebar-border: 150 15% 20%;
+    --sidebar-ring: 158 45% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
