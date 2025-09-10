@@ -32,7 +32,7 @@ app.use(helmet({
 app.use(cors({
 	origin: process.env.NODE_ENV === 'production' 
 		? ['https://yourdomain.com'] 
-		: ['http://localhost:3000', 'http://localhost:8081'],
+		: ['http://localhost:8081', 'http://localhost:8080'],
 	credentials: true,
 	methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 	allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
@@ -70,7 +70,8 @@ const limiter = rateLimit({
 const speedLimiter = slowDown({
 	windowMs: 15 * 60 * 1000, // 15 minutes
 	delayAfter: 50, // allow 50 requests per 15 minutes, then...
-	delayMs: 500 // begin adding 500ms of delay per request above 50
+	delayMs: () => 500, // begin adding 500ms of delay per request above 50
+	validate: { delayMs: false } // disable the warning
 });
 
 app.use(limiter);
@@ -147,8 +148,8 @@ app.get('/health', async (req, res) => {
 // API routes
 app.use('/api', routes);
 
-// 404 handler
-app.use('*', (req, res) => {
+// 404 handler - catch all unmatched routes
+app.use((req, res) => {
 	res.status(404).json({
 		error: 'Not Found',
 		message: `Route ${req.originalUrl} not found`,
